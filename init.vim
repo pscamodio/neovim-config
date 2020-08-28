@@ -5,6 +5,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-jp/vim-cpp'
 Plug 'pboettch/vim-cmake-syntax'
 Plug 'sbdchd/neoformat'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'APZelos/blamer.nvim'
+Plug 'Shougo/neoinclude.vim'
 call plug#end()
 
 " Blamer
@@ -14,12 +17,14 @@ let g:blamer_enabled = 1
 let g:doxygen_enhanced_color=1
 let g:load_doxygen_syntax=1
 
+" Default vim settings
 set expandtab
 set shiftwidth=2
 set lcs=trail:·,tab:»·
 set list
 set cursorline
 set number
+syntax on
 
 set signcolumn=yes
 
@@ -45,3 +50,8 @@ set backupdir=$TEMP,$TMP,.
 
 " Enable mouse interaction
 set mouse=a
+
+" CtrlP settings
+if executable('rg')
+  let g:ctrlp_user_command = 'rg %s --files --hidden --color=never --glob ""'
+endif
