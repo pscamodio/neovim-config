@@ -1,8 +1,16 @@
 call plug#begin()
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-jp/vim-cpp'
+Plug 'pboettch/vim-cmake-syntax'
+Plug 'sbdchd/neoformat'
 call plug#end()
 
+" Blamer
+let g:blamer_enabled = 1
+
+" Doxygen syntax
 let g:doxygen_enhanced_color=1
 let g:load_doxygen_syntax=1
 
@@ -13,10 +21,9 @@ set list
 set cursorline
 set number
 
-set undofile
-
 set signcolumn=yes
 
+" Color scheme settings
 let g:gruvbox_contrast_light="hard"
 let g:gruvbox_italic=1
 let g:gruvbox_invert_signs=0
@@ -28,9 +35,13 @@ colorscheme gruvbox
 
 let g:vim_indent_guides_start_level = 2
 
+" Two level status line
 let laststatus=2
-set mouse=a
-set statusline+=%{FugitiveStatusline()}
-set termguicolors
+
+" Backup handling
+set undofile
 set backup
 set backupdir=$TEMP,$TMP,. 
+
+" Enable mouse interaction
+set mouse=a
